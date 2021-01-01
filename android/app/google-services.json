@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "441536027200",
+    "project_id": "fluttertracker-a7c54",
+    "storage_bucket": "fluttertracker-a7c54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441536027200:android:2b61d17c118b06fe68dda5",
+        "android_client_info": {
+          "package_name": "com.mahanthesh.tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441536027200-j4q8q92jfs6ajib1irldjoivs8j2620q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7PAFd3yB5OWNypawAO4suOb498HO0SBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441536027200-j4q8q92jfs6ajib1irldjoivs8j2620q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
