@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -20,26 +21,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool showButton = true, showLoading = false, isError = false;
 
-  bool isEmptyCheck() {
-    if (_email != null ||
-        _password != null ||
-        _confirmPassword != null ||
-        _name != null ||
-        _deviceID != null ||
-        _employeeID != null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  bool validateEmail() {
-    Pattern pattern =
-        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
-    RegExp regex = new RegExp(pattern);
-    return (!regex.hasMatch(_email)) ? false : true;
-  }
-
   Future<void> _createUser() async {
     try {
       if (_email == null ||
@@ -59,6 +40,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         });
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
+        addUserDetails();
+        if (userCredential != null) {
+          Navigator.pop(context);
+        }
+
         print("User $userCredential");
       }
     } catch (e) {
@@ -75,14 +61,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
               timeInSecForIosWeb: 2);
         }
       });
-
-      // setState(() {
-      //   isError = true;
-      //   showButton = true;
-      //   showLoading = false;
-      // });
-
       print("Error $e");
+    }
+  }
+
+  Future<void> addUserDetails() async {
+    try {
+      CollectionReference users =
+          FirebaseFirestore.instance.collection('users');
+      users.add({
+        'name': _name,
+        'email': _email,
+        'device_id': _deviceID,
+        'employee_id': _employeeID
+      });
+    } catch (e) {
+      print("FireStore Error: $e");
     }
   }
 
