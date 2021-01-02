@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tracker/model/ListViewModel.dart';
 
 const COLOR_RED = Color.fromRGBO(253, 114, 114, 1.0);
 const COLOR_GREY = Color.fromRGBO(240, 245, 247, 1.0);
 
 const COLOR_WHITE = Color.fromRGBO(255, 255, 255, 1.0);
 const COLOR_LIGHT_WHITE = Color.fromRGBO(255, 255, 255, 0.3);
+const COLOR_SCREEN_BG = Color.fromRGBO(240, 245, 247, 1.0);
 const COLOR_BLACK = Color.fromRGBO(12, 7, 56, 1.0);
+const COLOR_SHADOW = Color.fromRGBO(0, 0, 0, 0.09);
 
 const TextTheme TEXT_THEME_DEFAULT = TextTheme(
     headline1: TextStyle(
@@ -62,3 +65,12 @@ const TextTheme TEXT_THEME_SMALL = TextTheme(
         color: COLOR_BLACK, fontSize: 10, fontWeight: FontWeight.w400),
     subtitle2: TextStyle(
         color: COLOR_GREY, fontSize: 10, fontWeight: FontWeight.w400));
+
+List<ListViewModel> listData = [
+  ListViewModel(Icons.map, "Live-Tracking", "Real-Time Location"),
+  ListViewModel(Icons.ac_unit, "Heater", "Jacket Heater", toggle: true),
+  ListViewModel(Icons.ac_unit, "Heater", "Ambient Heater", toggle: false),
+  ListViewModel(Icons.lock, "Lock", "Lock 1", toggle: false),
+  ListViewModel(Icons.lock, "Lock", "Lock 2", toggle: true),
+  ListViewModel(Icons.lock, "Lock", "Lock 3", toggle: true),
+];
