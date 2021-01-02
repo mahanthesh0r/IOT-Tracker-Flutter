@@ -4,6 +4,7 @@ const COLOR_RED = Color.fromRGBO(253, 114, 114, 1.0);
 const COLOR_GREY = Color.fromRGBO(240, 245, 247, 1.0);
 
 const COLOR_WHITE = Color.fromRGBO(255, 255, 255, 1.0);
+const COLOR_LIGHT_WHITE = Color.fromRGBO(255, 255, 255, 0.3);
 const COLOR_BLACK = Color.fromRGBO(12, 7, 56, 1.0);
 
 const TextTheme TEXT_THEME_DEFAULT = TextTheme(
